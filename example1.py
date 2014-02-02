@@ -1,6 +1,7 @@
 from environment import *
 from reflexAgent import *
 from package import *
+from modelBasedAgent import *
 
 
 #            A
@@ -20,7 +21,7 @@ gr1 = Graph(['A','B','C','D','E','F'],
             [('A','C',2),('B','C',3),('C','D',3),('D','E',4),('D','F',4)],
             ['A','B','E','F'])
 
-agent = ReflexAgent(gr1,'A')
+agent = ModelBasedAgent(gr1,'A')
 environment = Environment(gr1,agent) 
 environment.addPackage('A',Package('F', 1, '4566'))
 environment.addPackage('A',Package('E', 1, '4567'))
