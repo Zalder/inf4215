@@ -57,7 +57,7 @@ class Agent:
 
     def chooseAction(self, environment):
         if not self.plan:
-            self.plan = A COMPLETER...
+            self.plan = Search(environment, lambda x:x.allDelivered()).startSearch()
         return self.plan.pop()    
 
 
@@ -76,9 +76,6 @@ class Agent:
     def costMove(self,source,dest):
         distance = self.graph.shortestPathLength(source,dest)
         return self.k * distance * (self.loadWeight + self.weight)
-    
-    def setSearcher(self, searcher):
-        self.searcher = searcher
 
         
     

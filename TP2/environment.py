@@ -43,7 +43,7 @@ class Environment:
         return self.agent.empty()
 
     def percept(self):
-         return self.copy()
+        return self.copy()
 
     def executeAction(self, (action,arg)):
         "Agent executes the action. World state is changed to reflect this action."

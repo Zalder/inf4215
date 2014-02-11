@@ -31,10 +31,6 @@ environment.addPackage('B',Package('A', 3, '1873'))
 environment.addPackage('F',Package('B', 3, '2317'))
 environment.addPackage('G',Package('E', 3, '2312'))
 environment.addPackage('I',Package('G', 3, '2232'))
-test = lambda x: x.allDelivered()
-search = Search(environment.copy(), test)
-agent.setSearcher(search)
-
 environment.run()
     
 
