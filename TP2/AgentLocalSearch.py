@@ -30,8 +30,21 @@ class AgentLocalSearch(object):
             neighbors = current.expand()
             if not neighbors:
                 break
-            current = min(neighbors, key=attrgetter("f"))
-            break;
-        return current.action
+            current = min(neighbors, key=attrgetter("h"))
+            print current.h
+            print current.action
+            if self.successTest(current.state):
+                return self._extractPlan(current)
+    
+    
+    def _extractPlan(self,node):
+        currentNode = node
+        plan = [currentNode.action]
+        while currentNode.previous != None:
+            currentNode = currentNode.previous
+            plan.append(currentNode.action)
+        
+        plan.pop()
+        return plan
 
 

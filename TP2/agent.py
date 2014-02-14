@@ -10,6 +10,7 @@
 # Author: Michel Gagnon
 # Date:  31/01/2014
 from AStar import *
+from AgentLocalSearch import *
 import sys
 
 
@@ -57,7 +58,7 @@ class Agent:
 
     def chooseAction(self, environment):
         if not self.plan:
-            self.plan = Search(environment, lambda x:x.allDelivered()).startSearch()
+            self.plan = AgentLocalSearch(environment, lambda x:x.allDelivered()).startSearch()
         return self.plan.pop()    
 
 

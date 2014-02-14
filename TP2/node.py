@@ -4,6 +4,7 @@ import sys
 import math
 import copy
 from agent import *
+from copy import deepcopy
 
 import logging
 
@@ -40,7 +41,11 @@ class Node(object):
                 if package.destination not in loadedPackageDests:
                     loadedPackageDests.append(package.destination)
         else:
-            loadedPackageDests = self.state.graph.specialNodes
+            loadedPackageDests = deepcopy(self.state.graph.specialNodes)
+            
+            ## CODE POUR LOCAL SEARCH A MODIFIER
+            if self.state.agent.position in loadedPackageDests:
+                loadedPackageDests.remove(self.state.agent.position)
         
         for node in loadedPackageDests:
             curState = self.state.copy()
