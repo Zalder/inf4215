@@ -82,9 +82,6 @@ class Environment:
                 reduce(operator.and_,
                        [len(set([p.id for p in self.desks[d]]).symmetric_difference(set([p.id for p in other.desks[d]]))) == 0 for d in self.desks]))
 
-
-
-
     ####################
     # Private methods
     ####################

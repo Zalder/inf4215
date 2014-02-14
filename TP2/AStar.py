@@ -9,6 +9,10 @@ from node import *
 import sys
 import math
 
+# Basic logging 
+import logging
+logging.basicConfig(filename='example.log',level=logging.DEBUG)
+
 
 class Search(object):
     """ This is an implementation of the A* search """
@@ -32,6 +36,11 @@ class Search(object):
                 continue
             else:
                 self.visitedNodes.append(currentNode)
+                if currentNode.action == None:
+                    logging.info('START')
+                else:
+                    logging.info('Expanding node : %s, %s, %s', getActionString(currentNode.action), currentNode.f, currentNode.h)
+                    
                 if self.successTest(currentNode.state):
                     return self._extractPlan(currentNode)
                 else:
