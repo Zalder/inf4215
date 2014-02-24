@@ -5,7 +5,6 @@
 # Author: Michel Gagnon
 # Date:  31/01/2014
 
-from node import *
 import sys
 import math
 import subprocess
@@ -56,9 +55,22 @@ class Search(object):
         # Package list
         for  p in self.environment.packages:
             self.problemFile.write("      (package {})\n".format(p.id))
-        
+            self.problemFile.write("      (= (poids {}) {})\n".format(p.id, p.weight))
+            self.problemFile.write("      (at {} {})\n".format(p.id, p.origin))
+            self.problemFile.write("      (to {} {})\n\n".format(p.id, p.destination))
 
-        # Vous devez compléter ici...
+        for d in self.environment.graph.nodes:
+            self.problemFile.write("      (node {})\n".format(d))
+        
+        self.problemFile.write("\n      (= maxLoad {})\n".format(self.environment.agent.maxLoad))
+        self.problemFile.write("      (= loadWeight {})\n".format(self.environment.agent.loadWeight))
+        self.problemFile.write("      (pos agent {})\n\n".format(self.environment.agent.position))
+
+        for (A, B, cost) in self.environment.graph.edges:
+            self.problemFile.write("      (connected {} {})\n".format(A, B))
+            self.problemFile.write("      (connected {} {})\n".format(B, A))
+            self.problemFile.write("      (= (cost {} {}) {})\n".format(B, A, cost))
+            self.problemFile.write("      (= (cost {} {}) {})\n\n".format(A, B, cost))
         
         self.problemFile.write("""
    (:goal (forall (?x) (imply (package ?x) (delivered ?x))))
