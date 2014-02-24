@@ -14,8 +14,9 @@
                           (node ?comptoir)
 
        )
-       :effect (and (not (at ?package ?comptoir)
-                    (= (loadWeight) (+ (loadWeight) (poids ?package)))
+       :effect (and (not (at ?package ?comptoir))
+                    (increase (loadWeight) (poids ?package))
+        
        )
   )
   (:action drop
@@ -26,7 +27,7 @@
                           (node ?comptoir)
        )
        :effect (and (at ?package ?comptoir)
-                    (= (loadWeight) (- (loadWeight) (poids ?package)))
+                    (decrease (loadWeight) (poids ?package))
                     (delivered ?package)
        )
   )
@@ -38,10 +39,7 @@
                           (node ?destination)
        )
        :effect  (and (pos agent ?destination)
-                     (= (cost) (+ (cost) (cost ?origin ?destination)))
+                     (increase (cost) (cost ?origin ?destination))
                 )
        )
   )
-
-
-
