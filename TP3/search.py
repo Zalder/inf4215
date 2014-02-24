@@ -72,6 +72,7 @@ class Search(object):
             self.problemFile.write("      (= (cost {} {}) {})\n".format(B, A, cost))
             self.problemFile.write("      (= (cost {} {}) {})\n\n".format(A, B, cost))
         
+        self.problemFile.write("   )\n")
         self.problemFile.write("""
    (:goal (forall (?x) (imply (package ?x) (delivered ?x))))
    (:metric minimize (cost agent)))

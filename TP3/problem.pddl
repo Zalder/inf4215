@@ -67,6 +67,7 @@
       (= (cost I H) 4)
       (= (cost H I) 4)
 
+   )
 
    (:goal (forall (?x) (imply (package ?x) (delivered ?x))))
    (:metric minimize (cost agent)))
