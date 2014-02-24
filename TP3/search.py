@@ -62,15 +62,15 @@ class Search(object):
         for d in self.environment.graph.nodes:
             self.problemFile.write("      (node {})\n".format(d))
         
-        self.problemFile.write("\n      (= maxLoad {})\n".format(self.environment.agent.maxLoad))
-        self.problemFile.write("      (= loadWeight {})\n".format(self.environment.agent.loadWeight))
+        self.problemFile.write("\n      (= (maxLoad agent) {})\n".format(self.environment.agent.maxLoad))
+        self.problemFile.write("      (= (loadWeight agent) {})\n".format(self.environment.agent.loadWeight))
         self.problemFile.write("      (pos agent {})\n\n".format(self.environment.agent.position))
 
         for (A, B, cost) in self.environment.graph.edges:
             self.problemFile.write("      (connected {} {})\n".format(A, B))
             self.problemFile.write("      (connected {} {})\n".format(B, A))
-            self.problemFile.write("      (= (cost {} {}) {})\n".format(B, A, cost))
-            self.problemFile.write("      (= (cost {} {}) {})\n\n".format(A, B, cost))
+            self.problemFile.write("      (= (costNode {} {}) {})\n".format(B, A, cost))
+            self.problemFile.write("      (= (costNode {} {}) {})\n\n".format(A, B, cost))
         
         self.problemFile.write("   )\n")
         self.problemFile.write("""
