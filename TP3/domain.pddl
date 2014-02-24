@@ -4,7 +4,10 @@
                 (to ?package ?comptoir)
                 (pos ?agent ?position)
                 (loadedOn ?package)
-                (loadedOff ?package))
+                (loadedOff ?package)
+                (package ?package)
+                (delivered ?package)
+                (node ?comptoir))
   (:action take
        :parameters  (?package ?comptoir)
        :precondition (and (at ?package ?comptoir)
