@@ -1,4 +1,4 @@
-(define (domain prob1)
+(define (domain store)
    (:constants maxLoad loadWeight) 
    (:predicates (at ?package ?comptoir)
                 (to ?package ?comptoir)
