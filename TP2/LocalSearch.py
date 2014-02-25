@@ -8,12 +8,12 @@
 from node import *
 from operator import attrgetter
 import sys
-import math
+import random
 
 
 # Implementation de l'algorithme d'exploration par escalade
 
-class AgentLocalSearch(object):
+class LocalSearch(object):
     """ This is an implementation of the A* search """
     def __init__(self, initState, successTest):
         self.initNode = Node(initState)
@@ -25,16 +25,27 @@ class AgentLocalSearch(object):
 
     def startSearch(self):
         """ This function does the search and returns a plan """
-        current = self.initNode;
-        while True:
-            neighbors = current.expand()
-            if not neighbors:
-                break
-            current = min(neighbors, key=attrgetter("h"))
-            print current.h
-            print current.action
-            if self.successTest(current.state):
-                return self._extractPlan(current)
+        current = self.initNode
+        bestScore = float("inf")
+        for i in range(0,100):
+            current = self.initNode
+            while True:
+                neighbors = current.expand()
+                if not neighbors:
+                    break
+                current = min(neighbors, key=attrgetter("h"))
+                
+                # Random minimum
+                listOfMins =  [x for x in neighbors if current.h == x.h]
+                index = random.randint(0, len(listOfMins)-1)
+                current = listOfMins[index]
+                
+                if self.successTest(current.state):
+                    if current.g < bestScore:
+                        bestScore = current.g
+                        bestOne = current
+                        break
+        return self._extractPlan(bestOne)
     
     
     def _extractPlan(self,node):

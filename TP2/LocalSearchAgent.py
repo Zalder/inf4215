@@ -9,13 +9,12 @@
 #
 # Author: Michel Gagnon
 # Date:  31/01/2014
-from AStar import *
 from LocalSearch import *
 import sys
 
 
 
-class Agent:
+class LocalSearchAgent:
     def __init__(self, graph, pos, weight = 10, maxLoad = 5, k = 1):
         self.graph = graph
         self.position = pos
@@ -58,7 +57,7 @@ class Agent:
 
     def chooseAction(self, environment):
         if not self.plan:
-            self.plan = Search(environment, lambda x:x.allDelivered()).startSearch()
+            self.plan = LocalSearch(environment, lambda x:x.allDelivered()).startSearch()
         return self.plan.pop()    
 
 

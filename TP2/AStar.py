@@ -36,10 +36,11 @@ class Search(object):
                 continue
             else:
                 self.visitedNodes.append(currentNode)
-                if currentNode.action == None:
-                    logging.info('START')
-                else:
-                    logging.info('Expanding node : %s, %s, %s', getActionString(currentNode.action), currentNode.f, currentNode.h)
+#                 if currentNode.action == None:
+#                     logging.info('START')
+#                 else:
+#                     logging.info('Expanding node : %s, %s, %s', getActionString(currentNode.action), currentNode.f, currentNode.h)
+#                     print 'Expanding node : ', currentNode.f, currentNode.h
                     
                 if self.successTest(currentNode.state):
                     return self._extractPlan(currentNode)
