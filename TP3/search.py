@@ -51,6 +51,9 @@ class Search(object):
         self.problemFile.write(")\n")
 
         self.problemFile.write("   (:init \n")
+        
+        # Cost initialization
+        self.problemFile.write("(= (cost agent) 0)\n")
 
         # Package list
         for  p in self.environment.packages:
