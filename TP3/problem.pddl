@@ -1,17 +1,13 @@
 
 (define (problem prob1)
    (:domain store)
-   (:objects A B C D E F G H I p2102 p5431)
+   (:objects A B C D E F G H I p818)
    (:init 
-      (package p2102)
-      (= (poids p2102) 2)
-      (at p2102 B)
-      (to p2102 A)
-
-      (package p5431)
-      (= (poids p5431) 4)
-      (at p5431 B)
-      (to p5431 A)
+   (= (cost agent) 0)
+      (package p818)
+      (= (poids p818) 2)
+      (at p818 A)
+      (to p818 G)
 
       (node A)
       (node B)
@@ -25,7 +21,7 @@
 
       (= (maxLoad agent) 5)
       (= (loadWeight agent) 0)
-      (pos agent A)
+      (pos agent E)
 
       (connected A C)
       (connected C A)
