@@ -19,11 +19,11 @@
        :parameters  (?package ?comptoir)
        :precondition (and (at ?package ?comptoir)
                           (>= (maxLoad agent) (+ (loadWeight agent) (poids ?package)))
-                          (not (to ?package ?comptoir))
                           (package ?package)
                           (node ?comptoir)
 			  (not (loadedOn ?package))
 			  (pos agent ?comptoir)
+			  (not (delivered ?package))
 
        )
        :effect (and (not (at ?package ?comptoir))
@@ -48,7 +48,7 @@
        )
   )
   (:action move
-       :parameters  (?origin ?destination)
+       :parameters  (?destination ?origin)
        :precondition (and (not (pos agent ?destination))
                           (connected ?origin ?destination)
                           (node ?origin)

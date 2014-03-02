@@ -57,7 +57,16 @@ class Agent:
             return ('wait',None)
         if not self.plan:
             self.plan = Search(environment).startSearch()
-        return self.plan.pop()    
+        
+        # Detecter l'ajout de paquet et updater le plan si necessaire
+        packageList = [x[1] for x in self.plan if x[0] != 'move']
+        
+        addedPackages = [p.id for p in environment.packages if p.id not in packageList]
+        
+        if len(addedPackages) > 0:
+            self.plan = Search(environment).startSearch() 
+        
+        return self.plan.pop() 
 
 
     def updateModel(self,action,environment):

@@ -48,6 +48,8 @@ class Search(object):
             self.problemFile.write(" " + d)
         for p in self.environment.packages:
             self.problemFile.write(" " + p.id)
+        for p in self.environment.agent.load:
+            self.problemFile.write(" " + p.id)
         self.problemFile.write(")\n")
 
         self.problemFile.write("   (:init \n")
@@ -60,6 +62,13 @@ class Search(object):
             self.problemFile.write("      (package {})\n".format(p.id))
             self.problemFile.write("      (= (poids {}) {})\n".format(p.id, p.weight))
             self.problemFile.write("      (at {} {})\n".format(p.id, p.origin))
+            self.problemFile.write("      (to {} {})\n\n".format(p.id, p.destination))
+            
+        # Loaded packages list
+        for p in self.environment.agent.load:
+            self.problemFile.write("      (package {})\n".format(p.id))
+            self.problemFile.write("      (= (poids {}) {})\n".format(p.id, p.weight))
+            self.problemFile.write("      (loadedOn {})\n".format(p.id))
             self.problemFile.write("      (to {} {})\n\n".format(p.id, p.destination))
 
         for d in self.environment.graph.nodes:
@@ -91,7 +100,7 @@ class Search(object):
 
         plan = []
         for line in [l.split() for l in lines]:
-            plan.append((line[-2],line[-1]))
+            plan.append((line[-3],line[-2]))
 
         plan.reverse()
         return plan                
