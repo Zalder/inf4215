@@ -16,7 +16,9 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		adsList = new HashMap<Integer, Annonce>();
+		viewedAdsList = new ArrayList<Integer>();
 		readXML();
+		readViewedXML();
 
 	}
 	
@@ -68,6 +70,32 @@ public class Main {
 			
 	}
 	
+	private static void readViewedXML()
+	{
+		try
+		{
+			File adsFile = new File("viewedAds.xml");
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(adsFile);
+			
+			doc.getDocumentElement().normalize();
+			
+			NodeList nAdList = doc.getElementsByTagName("ad");
+			for(int i = 0; i < nAdList.getLength(); i++)
+			{
+				Element curElem = (Element)nAdList.item(i);
+				viewedAdsList.add(Integer.parseInt(curElem.getAttribute("id")));
+			}
+		}
+		
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
 	private static HashMap<Integer, Annonce> adsList;
+	private static ArrayList<Integer> viewedAdsList;
 
 }

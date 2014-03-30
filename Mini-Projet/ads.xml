@@ -1,0 +1,50 @@
+﻿<?xml version="1.0"?>
+<ads>
+    <ad id="1" prix="15000" lang="FR">
+        <name>2005 Mercedes C55 AMG toute équipée,performante,puissante320kmh</name>
+        <desc>Mercedes C55 AMG V8 5.5L, automatique et mode manuel avec bouton au volant pour changer les vitesses,voiture de luxe avec tous les options inclus pour tout le confortvoulu...</desc>
+        <tags>
+            <tag>Voiture</tag>
+            <tag>Laval</tag>
+            <tag>Mercedes-Benz</tag>
+            <tag>Automatique</tag>
+            <tag>2005</tag>
+        </tags>
+    </ad>
+
+    <ad id="2" prix="2195" lang="FR">
+        <name>Mazda Protege 2003 automatique air climatisé 145054km negociable</name>
+        <desc>Très beau protégé LX 2.0L automatique avec groupe électrique et climatiseur.  Bas kilométrage, roule très bien!,  Très bonne condition dans l'ensemble. Le véhicule vient avec pneus d'été sur rims! et pneu hiver en excellente condition et antirouille a déja été fait sur ce véhicule.</desc>
+        <tags>
+            <tag>Voiture</tag>
+            <tag>Laval</tag>
+            <tag>Mazda</tag>
+            <tag>Automatique</tag>
+            <tag>Berline</tag>
+            <tag>2003</tag>
+        </tags>
+    </ad>
+    
+    <ad id="3" prix="0" lang="FR">
+        <name>1998 Toyota Corolla Berline</name>
+        <desc>
+            - La voiture a seulement 166,000 Km
+            - Service effectué il y a environ 1 mois
+            - Voiture très fiable, très économique
+            - Il n'y a aucune réparation à faire, elle roule parfaitement bien.
+
+            Raison de la vente: Départ pour un travail à l'étranger.
+
+            Faites vite car c'est une excellente affaire.</desc>
+        <tags>
+            <tag>Voiture</tag>
+            <tag>Montréal</tag>
+            <tag>Toyota</tag>
+            <tag>Corolla</tag>
+            <tag>Automatique</tag>
+            <tag>Berline</tag>
+            <tag>1998</tag>
+        </tags>
+    </ad>
+    
+</ads>
