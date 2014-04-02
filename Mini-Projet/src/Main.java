@@ -7,6 +7,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import java.io.File;
 import java.util.*;
+import java.util.Map.Entry;
 
 
 public class Main {
@@ -19,7 +20,19 @@ public class Main {
 		viewedAdsList = new ArrayList<Integer>();
 		readXML();
 		readViewedXML();
-
+		createProfile();
+	}
+	
+	private static void createProfile()
+	{
+		ArrayList<Annonce> viewedAds = new ArrayList<Annonce>();
+		
+		for(Integer curId: viewedAdsList)
+		{
+			viewedAds.add(adsList.get(curId));
+		}
+		
+		userProfile_ = new Profil(viewedAds);
 	}
 	
 	private static void readXML()
@@ -97,5 +110,6 @@ public class Main {
 	
 	private static HashMap<Integer, Annonce> adsList;
 	private static ArrayList<Integer> viewedAdsList;
+	private static Profil userProfile_;
 
 }
