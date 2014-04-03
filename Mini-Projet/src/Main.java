@@ -21,6 +21,14 @@ public class Main {
 		readXML();
 		readViewedXML();
 		createProfile();
+		
+		// Remove already viewed ads from ads db
+		
+		for(Integer adId: viewedAdsList)
+		{
+			if(adsList.get(adId) != null)
+				adsList.remove(adId);
+		}
 	}
 	
 	private static void createProfile()

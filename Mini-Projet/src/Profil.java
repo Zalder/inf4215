@@ -4,7 +4,7 @@ import java.util.Map.Entry;
 // Représente le profil de l'utilisateur
 
 public class Profil {
-	private HashMap<String, Integer> tokens;
+	public HashMap<String, Integer> tokens;
 	
 	public Profil(ArrayList<Annonce> viewedAds)
 	{
@@ -21,6 +21,14 @@ public class Profil {
 					tokens.put(str,1);
 				else
 					tokens.put(str, tokens.get(str) + 1);
+			}
+			
+			for(String str: ad.tags_)
+			{
+				if(tokens.get(str) == null)
+					tokens.put(str,2);
+				else
+					tokens.put(str, tokens.get(str) + 2);
 			}
 		}
 	}
